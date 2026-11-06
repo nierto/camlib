@@ -113,6 +113,7 @@ jobs:
       - name: Install CadQuery and ruff
         run: python -m pip install cadquery ruff
       - name: Ruff
+        shell: bash
         run: |
           ruff check python examples bench
           ruff format --check python examples bench
@@ -127,6 +128,7 @@ jobs:
       - name: Benchmark platform tests
         run: python -m unittest discover -s bench -p "test_*.py"
       - name: Examples
+        shell: bash
         run: |
           python examples/standalone_job.py out
           python examples/cadquery_job.py out-cad
